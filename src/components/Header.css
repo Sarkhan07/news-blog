@@ -1,0 +1,16 @@
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: left;
+  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.site-name {
+  text-decoration: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
