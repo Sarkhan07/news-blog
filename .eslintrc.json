@@ -9,8 +9,9 @@
     "sourceType": "module"
   },
   "rules": {
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": "off",
     "indent": ["error", 2],
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "comma-dangle": ["error", "never"]
   }
 }
