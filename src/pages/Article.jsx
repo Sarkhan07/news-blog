@@ -10,7 +10,7 @@ function Articles() {
         {articleData.map((article) => (
           <div key={article.title} className="col-lg-4 col-md-6 mb-4">
             <Link to={`/article/${article.title}`}>
-              <div className="card">
+              <div className="card card-zoom">
                 <img
                   src={article.imageUrl}
                   alt={article.title}
