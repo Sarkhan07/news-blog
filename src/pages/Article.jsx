@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
-import articleData from '../articleData';
-import './article.css';
+import db from '../firebase';
 
 function Articles() {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'users'));
+        const articleData = querySnapshot.docs.map((doc) => doc.data());
+        setArticles(articleData);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
   return (
     <div className="container">
       <div className="row">
-        {articleData.map((article) => (
+        {articles.map((article) => (
           <div key={article.title} className="col-lg-4 col-md-6 mb-4">
             <Link to={`/article/${article.title}`}>
               <div className="card card-zoom">

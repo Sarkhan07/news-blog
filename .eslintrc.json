@@ -12,7 +12,8 @@
     "linebreak-style": "off",
     "indent": ["error", 2],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "object-curly-newline": ["error", { "ImportDeclaration": "never" }],  
     "comma-dangle": [2, "always-multiline"],
-    "trailing-comma": false  
+    "trailing-comma": "off"
   }
 }
