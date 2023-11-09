@@ -4,14 +4,13 @@ import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import articleData from './articleData';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyDgfG0hXnw3JgWTnlZ2TOXyPEeg_2SZQ5Q',
-  authDomain: 'news-blog-fa7c4.firebaseapp.com',
-  databaseURL:
-    'https://news-blog-fa7c4-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 'news-blog-fa7c4',
-  storageBucket: 'news-blog-fa7c4.appspot.com',
-  messagingSenderId: '698100103653',
-  appId: '1:698100103653:web:a75ae5889c9cc757efd70c',
+  apiKey: 'AIzaSyCFZQsIqOXE5srMDjjw0Zm10Gc24c90iQg',
+  authDomain: 'news-e0c4a.firebaseapp.com',
+  projectId: 'news-e0c4a',
+  storageBucket: 'news-e0c4a.appspot.com',
+  messagingSenderId: '534759646578',
+  appId: '1:534759646578:web:92f980fe58d45e8cd229eb',
+  measurementId: 'G-XMZST880VX',
 };
 
 const app = initializeApp(firebaseConfig);
