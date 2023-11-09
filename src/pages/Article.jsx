@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { Link } from 'react-router-dom';
 import db from '../firebase';
+import './article.css';
 
 function Articles() {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    const getArticles = async () => {
       try {
-        const querySnapshot = await getDocs(collection(db, 'users'));
-        const articleData = querySnapshot.docs.map((doc) => doc.data());
+        const getDocuments = await getDocs(collection(db, 'users'));
+        const articleData = getDocuments.docs.map((doc) => doc.data());
         setArticles(articleData);
       } catch (error) {
         console.error('Error fetching data: ', error);
       }
     };
 
-    fetchArticles();
+    getArticles();
   }, []);
 
   return (

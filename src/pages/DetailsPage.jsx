@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { collection, getDocs } from 'firebase/firestore';
 import db from '../firebase';
-
 import './detailPage.css';
 
 function DetailsPage() {
@@ -10,17 +9,17 @@ function DetailsPage() {
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
-    const fetchArticle = async () => {
+    const getArticle = async () => {
       try {
-        const docRef = await getDocs(collection(db, 'users'));
-        const articleData = docRef.docs.map((doc) => doc.data());
+        const getDocument = await getDocs(collection(db, 'users'));
+        const articleData = getDocument.docs.map((doc) => doc.data());
         setArticle(articleData);
       } catch (error) {
-        console.error('Error fetching data: ');
+        console.error('Error getting data: ');
       }
     };
 
-    fetchArticle();
+    getArticle();
   }, [title]);
 
   if (!article) {
@@ -28,7 +27,6 @@ function DetailsPage() {
   }
 
   const articlePoint = article.find((a) => a.title === title);
-  console.log(articlePoint);
 
   return (
     <div className="container">
