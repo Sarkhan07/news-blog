@@ -15,7 +15,7 @@ function DetailsPage() {
         const articleData = getDocument.docs.map((doc) => doc.data());
         setArticle(articleData);
       } catch (error) {
-        console.error('Error getting data: ');
+        console.error(`Error getting data: ${error}`);
       }
     };
 

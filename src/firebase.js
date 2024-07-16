@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, query, where, getDocs, addDoc } from 'firebase/firestore';
-import articleData from './articleData';
+// import { getFirestore, collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+// import articleData from './articleData';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCFZQsIqOXE5srMDjjw0Zm10Gc24c90iQg',
@@ -14,31 +15,31 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const articlesCollection = collection(db, 'users');
+// const articlesCollection = collection(db, 'users');
 
-articleData.forEach(async (article) => {
-  const checkWithTitle = query(articlesCollection, where('title', '==', article.title));
-  const titleExists = await getDocs(checkWithTitle);
+// articleData.forEach(async (article) => {
+//   const checkWithTitle = query(articlesCollection, where('title', '==', article.title));
+//   const titleExists = await getDocs(checkWithTitle);
 
-  if (titleExists.empty) {
-    if (
-      typeof article.title === 'string'
-      && typeof article.imageUrl === 'string'
-      && typeof article.description === 'string'
-      && typeof article.expertComment === 'string'
-    ) {
-      try {
-        const newArticle = await addDoc(articlesCollection, article);
-        console.log('Card added with ID: ', newArticle.id);
-      } catch (error) {
-        console.error('Error adding card: ', error);
-      }
-    } else {
-      console.error('Invalid data:', article);
-    }
-  } else {
-    console.log(`Document with title "${article.title}" already exists.`);
-  }
-});
+//   if (titleExists.empty) {
+//     if (
+//       typeof article.title === 'string'
+//       && typeof article.imageUrl === 'string'
+//       && typeof article.description === 'string'
+//       && typeof article.expertComment === 'string'
+//     ) {
+//       try {
+//         const newArticle = await addDoc(articlesCollection, article);
+//         console.log('Card added with ID: ', newArticle.id);
+//       } catch (error) {
+//         console.error('Error adding card: ', error);
+//       }
+//     } else {
+//       console.error('Invalid data:', article);
+//     }
+//   } else {
+//     console.log(`Document with title "${article.title}" already exists.`);
+//   }
+// });
 
 export default db;
